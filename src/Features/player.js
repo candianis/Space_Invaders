@@ -6,27 +6,23 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.scene = scene;
         scene.add.existing(this);
         scene.physics.add.existing(this);
-        scene.input.keyboard.on("keydown", this.CheckMovement, this);
-        scene.input.keyboard.on("keyup", this.resetSpeed, this);
-        this.setScale(10, 10);
+        this.setScale(3, 3);
         this.body.immovable = true;
         this.body.setCollideWorldBounds(true);
 
         this.lifes = 1;
         this.canMove = true;
-
     }
 
-    CheckMovement(){
-        if(this.canMove){
-            if(event.keyCode === Phaser.Input.Keyboard.KeyCodes.A || event.keyCode === Phaser.Input.Keyboard.KeyCodes.LEFT)
-                this.body.velocity.x = -HORIZONTAL_VELOCITY;
-            if(event.keyCode === Phaser.Input.Keyboard.KeyCodes.D || event.keyCode === Phaser.Input.Keyboard.KeyCodes.RIGHT)
-                this.body.velocity.x = HORIZONTAL_VELOCITY;
-        }
+    check_movement(direction){
+        this.body.setVelocityX(HORIZONTAL_VELOCITY * direction);
     }
 
-    resetSpeed(){
-        this.body.velocity.x = 0;
+    reset_movement(){
+        this.body.setVelocityX(0);
+    }
+
+    fire_bullet(){
+        console.log("FIRE!");
     }
 }
