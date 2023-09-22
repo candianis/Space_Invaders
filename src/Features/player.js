@@ -6,7 +6,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.scene = scene;
         scene.add.existing(this);
         scene.physics.add.existing(this);
-        this.setScale(3, 3);
+        this.setScale(1.5, 1.5);
         this.body.immovable = true;
         this.body.setCollideWorldBounds(true);
 

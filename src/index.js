@@ -16,6 +16,7 @@ var config = {
 			debug: true
 		}
 	},
+	backgroundColor: '#000000',
 	scale: {
 		mode: Phaser.Scale.FIT,
 		autocenter: Phaser.Scale.CENTER_HORIZONTALLY,
